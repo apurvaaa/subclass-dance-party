@@ -1,6 +1,7 @@
-var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
+var MakeColorfulDiscoDancer = function(top, left, timeBetweenSteps) {
  
   MakeDancer.call(this, top, left, timeBetweenSteps);
+  this.colors = ['red', 'yellow', 'green', 'blue', 'purple'];
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
@@ -19,11 +20,14 @@ var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
   this.step();
 };
 
-MakeBlinkyDancer.prototype = Object.create(MakeDancer.prototype);
+MakeColorfulDiscoDancer.prototype = Object.create(MakeDancer.prototype);
 
-MakeBlinkyDancer.prototype.constructor = MakeBlinkyDancer;
+MakeColorfulDiscoDancer.prototype.constructor = MakeColorfulDiscoDancer;
 
-MakeBlinkyDancer.prototype.step = function() {
+MakeColorfulDiscoDancer.prototype.step = function() {
   MakeDancer.prototype.step.apply(this);
-  this.$node.toggle();
+  var color = this.colors[Math.floor(Math.random() * this.colors.length)]; 
+  this.$node.css({
+    'border': '10px solid ' + color,
+  });
 };

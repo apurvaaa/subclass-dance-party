@@ -1,10 +1,15 @@
 body, html{
   height:100%;
+
 }
 body{
   margin: 0px;
-  background-color:#444;
+  
   font-size: 18px;
+  background-color: yellow;
+  background-image: url('http://www.wallhd4.com/wp-content/uploads/2015/03/disco-lights-music-6.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -25,3 +30,39 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.disco{
+  border: none;
+  border-radius:10px;
+  position:absolute;
+}
+.triangleUp {
+  background-image: url('http://www.iconsdb.com/icons/preview/tropical-blue/triangle-xxl.png');
+  padding: 2%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center fixed;
+ }
+
+.star {
+  background-image: url('http://mavencube.com/html5-games/games/Matching_Shapes/images/p2-shape-starbig.png');
+  padding: 2%;
+  background-size: cover;
+ }
+ 
+
+.trapezoid {
+  background-image: url('http://vignette2.wikia.nocookie.net/scribblenauts/images/b/ba/Rhombus.png');
+  background-size: cover;
+  padding: 2%;
+  background-repeat: no-repeat;
+  background-position: center fixed;
+ }
+
+.heart {
+  background-image: url('http://www.clker.com/cliparts/f/7/a/U/V/H/heart-md.png');
+  background-size: cover;
+  padding: 2%;
+  background-repeat: no-repeat;
+  background-position: center fixed;
+ }

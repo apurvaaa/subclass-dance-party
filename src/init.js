@@ -15,7 +15,7 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName = $(this).data('data-dancer-maker-function-name');
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     //<!--$(this).data("data-dancer-maker-function-name"); -->
 
@@ -26,12 +26,44 @@ $(document).ready(function() {
 
     // make a dancer with a random position
 //dancerMakerFunction
-    var dancer = new MakeBlinkyDancer(
+    var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
-});
 
+  $('.lineUp').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+  });
+  $('.interact').on('click', function(event) {
+    var recent = window.dancers[window.dancers.length - 1];
+    //iterate through window.dancers
+      //find distance of each node to recent
+    var sortedDistance = window.dancers.map(function(dancer, index) {
+      var val2 = Math.sqrt(Math.pow(recent.left - dancer.left, 2) + Math.pow(recent.top - dancer.top, 2));
+      return [index, val2];
+    }).sort(function(a, b) {
+      return a[1] - b[1];
+    });
+    var numberNeighbors = Math.floor(Math.random() * 6) + 3;
+   
+    //find center position
+      //
+    for (var i = 0; i < numberNeighbors; i++) {
+      var dancerObj = window.dancers[sortedDistance[i][0]];
+      dancerObj.$node.animate({
+        left: recent.left,
+        top: recent.top
+      }, 3000, function() {
+        dancerObj.$node.css({'left': dancerObj.left,
+        'top': dancerObj.top 
+        });
+      });
+    }
+  });
+});

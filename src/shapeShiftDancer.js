@@ -1,7 +1,13 @@
-var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
+var MakeShapeShiftDancer = function(top, left, timeBetweenSteps) {
  
   MakeDancer.call(this, top, left, timeBetweenSteps);
-
+  this.shapes = {
+    0: 'triangleUp',
+    1: 'star',
+    2: 'trapezoid',
+    3: 'heart'
+  };
+  this.currShape = null;
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
@@ -19,11 +25,17 @@ var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
   this.step();
 };
 
-MakeBlinkyDancer.prototype = Object.create(MakeDancer.prototype);
+MakeShapeShiftDancer.prototype = Object.create(MakeDancer.prototype);
 
-MakeBlinkyDancer.prototype.constructor = MakeBlinkyDancer;
+MakeShapeShiftDancer.prototype.constructor = MakeShapeShiftDancer;
 
-MakeBlinkyDancer.prototype.step = function() {
+MakeShapeShiftDancer.prototype.step = function() {
   MakeDancer.prototype.step.apply(this);
-  this.$node.toggle();
+  var shape = this.shapes[Math.floor(Math.random() * 4)];
+  this.$node.removeClass(this.currShape);
+  this.$node.css({
+    'border': 'none',
+  });
+  this.$node.addClass(shape);
+  this.currShape = shape;
 };

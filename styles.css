@@ -72,3 +72,22 @@ body, a:link, a:visited, a:active{
   background-position: center fixed;
   display: block;
  }
+
+ .shy {
+
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   border-color: #7CFC00;
+   border-radius: 0;
+   
+ }
+
+ .shy:hover {
+   opacity : .15;
+ }
+
+ .lineUp {
+   left: '48%';
+ }

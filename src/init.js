@@ -35,11 +35,24 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
   });
 
-  $('.lineUp').on('click', function(event) {
+
+  var lineUpinit = function(event) {
+
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
     }
+  }; 
+
+  $('.lineUp').on('click', function(event) {
+    lineUpinit(event);
   });
+
+  $('span').on('mouseover', '.dancer', function(event) {
+    if (this.keepStill !== undefined) {
+      $(this).beShy();
+    }
+  });
+
   $('.interact').on('click', function(event) {
     var recent = window.dancers[window.dancers.length - 1];
     //iterate through window.dancers
@@ -59,17 +72,12 @@ $(document).ready(function() {
       dancerObj.$node.animate({
         left: recent.left,
         top: recent.top
-      }, 3000, function() {
-      // dancerObj.$node.animate({
-      //   left: dancerObj.left,
-      //   top: dancerObj.top
-      // }, 3000);
-      });
+      }, 3000);
     }
-    window.dancers.forEach(function(dancer){
+    window.dancers.forEach(function(dancer) {
       dancer.$node.animate({
         left: dancer.left,
         top: dancer.top
-      }, 3000)})
+      }, 3000); });
   });
 });

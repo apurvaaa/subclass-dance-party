@@ -29,6 +29,7 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  display:block;
 }
 
 .disco{
@@ -39,30 +40,35 @@ body, a:link, a:visited, a:active{
 .triangleUp {
   background-image: url('http://www.iconsdb.com/icons/preview/tropical-blue/triangle-xxl.png');
   padding: 2%;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center fixed;
+  display: block;
  }
 
 .star {
   background-image: url('http://mavencube.com/html5-games/games/Matching_Shapes/images/p2-shape-starbig.png');
   padding: 2%;
-  background-size: cover;
+  background-size: 100% 100%;
+  line-height: 100%;
+  display: block;
  }
  
 
 .trapezoid {
   background-image: url('http://vignette2.wikia.nocookie.net/scribblenauts/images/b/ba/Rhombus.png');
-  background-size: cover;
+  background-size: 100% 100%;
   padding: 2%;
   background-repeat: no-repeat;
   background-position: center fixed;
+  display: block;
  }
 
 .heart {
   background-image: url('http://www.clker.com/cliparts/f/7/a/U/V/H/heart-md.png');
-  background-size: cover;
+  background-size: 100% 100%;
   padding: 2%;
   background-repeat: no-repeat;
   background-position: center fixed;
+  display: block;
  }

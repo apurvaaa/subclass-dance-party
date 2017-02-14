@@ -60,10 +60,16 @@ $(document).ready(function() {
         left: recent.left,
         top: recent.top
       }, 3000, function() {
-        dancerObj.$node.css({'left': dancerObj.left,
-        'top': dancerObj.top 
-        });
+      // dancerObj.$node.animate({
+      //   left: dancerObj.left,
+      //   top: dancerObj.top
+      // }, 3000);
       });
     }
+    window.dancers.forEach(function(dancer){
+      dancer.$node.animate({
+        left: dancer.left,
+        top: dancer.top
+      }, 3000)})
   });
 });

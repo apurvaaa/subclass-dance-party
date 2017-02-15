@@ -12,12 +12,6 @@ describe('blinkyDancer', function() {
     expect(shyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(shyyDancer.$node, 'toggle');
-    shyDancer.step();
-    expect(shyDancer.$node.toggle.called).to.be.true;
-  });
-
   describe('dance', function() {
     it('should call step at least once per second', function() {
       sinon.spy(shyDancer, 'step');
@@ -30,6 +24,15 @@ describe('blinkyDancer', function() {
       clock.tick(timeBetweenSteps);
       expect(shyDancer.step.callCount).to.be.equal(2);
     });
+  });
+
+  it('should have a have a function beshy', function() {
+    expect(shyDancer.$node.hasClass('shy')).to.be.true;
+  });
+
+  it('should add lineUp class on invocation', function() {
+    shyDancer.lineUp();
+    expect(shyDancer.$node.hasClass('lineUp')).to.be.true;
   });
 
 });

@@ -41,11 +41,6 @@ $(document).ready(function() {
     }
   });
 
-  $('span').on('mouseover', '.dancer', function(event) {
-    if (this.keepStill !== undefined) {
-      $(this).beShy();
-    }
-  });
 
   $('.interact').on('click', function(event) {
     var recent = window.dancers[window.dancers.length - 1];

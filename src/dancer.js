@@ -32,8 +32,17 @@ MakeDancer.prototype.setPosition = function() {
 MakeDancer.prototype.lineUp = function() {
   
   if (this.$node.hasClass('lineUp')) {
+    var styleSettings = {
+      left: this.left,
+    };
+    this.$node.css(styleSettings);
     this.$node.removeClass('lineUp');
   } else {
+    var styleSettings = {
+      top: this.top,
+      left: '48%',
+    };
+    this.$node.css(styleSettings);
     this.$node.addClass('lineUp');
   }
 };

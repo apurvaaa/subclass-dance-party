@@ -35,16 +35,10 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
   });
 
-
-  var lineUpinit = function(event) {
-
+  $('.lineUpButton').on('click', function(event) {
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
     }
-  }; 
-
-  $('.lineUp').on('click', function(event) {
-    lineUpinit(event);
   });
 
   $('span').on('mouseover', '.dancer', function(event) {
@@ -64,7 +58,9 @@ $(document).ready(function() {
       return a[1] - b[1];
     });
     var numberNeighbors = Math.floor(Math.random() * 6) + 3;
-   
+    if (numberNeighbors > window.dancers.length) {
+      numberNeighbors = window.dancers.length;
+    } 
     //find center position
       //
     for (var i = 0; i < numberNeighbors; i++) {

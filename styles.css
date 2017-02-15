@@ -89,5 +89,7 @@ body, a:link, a:visited, a:active{
  }
 
  .lineUp {
-   left: '48%';
+   left: 48%;
+   background-color: 'white';
+   position: absolute;
  }
